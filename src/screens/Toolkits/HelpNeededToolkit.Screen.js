@@ -24,22 +24,22 @@ import ajax from '../../ajax/ajax';
 const logoImage = require('../../assets/logo-header.jpg');
 
 class HelpNeededToolkit extends Component {
-    static navigatorButtons = {
-        rightButtons: [
-            {
-            title: 'Save', // for a textual button, provide the button title (label)
-            id: 'save', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
-            //testID: 'e2e_rules', // optional, used to locate this view in end-to-end tests
-            //disabled: (this.state.currentItem) ? false : true, // optional, used to disable the button (appears faded and doesn't interact)
-            //disableIconTint: true, // optional, by default the image colors are overridden and tinted to navBarButtonColor, set to true to keep the original image colors
-            //showAsAction: 'ifRoom', // optional, Android only. Control how the button is displayed in the Toolbar. Accepted valued: 'ifRoom' (default) - Show this item as a button in an Action Bar if the system decides there is room for it. 'always' - Always show this item as a button in an Action Bar. 'withText' - When this item is in the action bar, always show it with a text label even if it also has an icon specified. 'never' - Never show this item as a button in an Action Bar.
-            buttonColor: 'white', // Optional, iOS only. Set color for the button (can also be used in setButtons function to set different button style programatically)
-            buttonFontSize: 18, // Set font size for the button (can also be used in setButtons function to set different button style programatically)
-            buttonFontWeight: '600', // Set font weight for the button (can also be used in setButtons function to set different button style programatically)
-            //systemItem: 'save',  
-          },
-        ]
-    };
+    // static navigatorButtons = {
+    //     rightButtons: [
+    //         {
+    //         title: 'Save', // for a textual button, provide the button title (label)
+    //         id: 'save', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
+    //         //testID: 'e2e_rules', // optional, used to locate this view in end-to-end tests
+    //         //disabled: (this.state.currentItem) ? false : true, // optional, used to disable the button (appears faded and doesn't interact)
+    //         //disableIconTint: true, // optional, by default the image colors are overridden and tinted to navBarButtonColor, set to true to keep the original image colors
+    //         //showAsAction: 'ifRoom', // optional, Android only. Control how the button is displayed in the Toolbar. Accepted valued: 'ifRoom' (default) - Show this item as a button in an Action Bar if the system decides there is room for it. 'always' - Always show this item as a button in an Action Bar. 'withText' - When this item is in the action bar, always show it with a text label even if it also has an icon specified. 'never' - Never show this item as a button in an Action Bar.
+    //         buttonColor: 'white', // Optional, iOS only. Set color for the button (can also be used in setButtons function to set different button style programatically)
+    //         buttonFontSize: 18, // Set font size for the button (can also be used in setButtons function to set different button style programatically)
+    //         buttonFontWeight: '600', // Set font weight for the button (can also be used in setButtons function to set different button style programatically)
+    //         //systemItem: 'save',  
+    //       },
+    //     ]
+    // };
 
     constructor(props){
       super(props);
@@ -80,14 +80,7 @@ class HelpNeededToolkit extends Component {
     setCurrentItem = (item, keyId) => {
         this.setState({
               currentItem: {
-                medication: item.medication,
-                monday: (item.monday) ? item.monday : false,
-                tuesday: (item.tuesday) ? item.tuesday : false,
-                wednesday: (item.wednesday) ? item.wednesday : false,
-                thursday: (item.thursday) ? item.thursday : false,
-                friday: (item.friday) ? item.friday : false,   
-                saturday: (item.saturday) ? item.saturday : false,  
-                sunday: (item.sunday) ? item.sunday : false,                           
+                helper: item.helper,                         
               },
               keyId: keyId,
         });
@@ -101,33 +94,17 @@ class HelpNeededToolkit extends Component {
     }
 
     //loop for rendering the medicines row of the toolkits using RowRender component
-    renderHelpers(times) {
+    renderHelpers(times, day) {
         const helpers = [];
-        let background = '';
+        //let background = '';
         for (let i=1; i <= times; i++) {
-            background = (i%2 == 0) ? '#bad2ef' : 'white';
+            //background = (i%2 == 0) ? '#bad2ef' : 'white';
             helpers.push(<HelpNeededRow 
-                            medication={this.state.data['helper' + i]} 
-                            monday={this.state.data['monday' + i]} 
-                            tuesday={this.state.data['tuesday' + i]} 
-                            wednesday={this.state.data['wednesday' + i]} 
-                            thursday={this.state.data['thursday' + i]} 
-                            friday={this.state.data['friday' + i]} 
-                            saturday={this.state.data['saturday' + i]} 
-                            sunday={this.state.data['sunday' + i]} 
-
-                            keyId={['helper' + i ,
-                                    'monday' + i,
-                                    'tuesday' + i,
-                                    'wednesday' + i,
-                                    'thursday' + i,
-                                    'friday' + i,
-                                    'saturday' + i,
-                                    'sunday' + i
-                                    ]}
+                            helper={this.state.data[day + 'Helper' + i]} 
+                            keyId={[`${day}Helper${i}`]}
                             onItemPress={this.setCurrentItem}
-                            backgroundColor={background}
-                            backgroundColorMedication={'#bad2ef'}
+                           // backgroundColor={background}
+                           // backgroundColorMedication={'#bad2ef'}
                             />);
         }
         return helpers;
@@ -136,6 +113,7 @@ class HelpNeededToolkit extends Component {
   
 
     render() {
+        const background = '#bad2ef';
 
         if(this.state.isLoading){
           return(
@@ -154,7 +132,7 @@ class HelpNeededToolkit extends Component {
                                   onPress={this.saveData}
                                   userId={this.state.user.id} 
                                   token={this.state.user.token}
-                                  navigator={this.props.navigator}
+                                  //navigator={this.props.navigator}
                                  />
             </View>
           )
@@ -166,40 +144,63 @@ class HelpNeededToolkit extends Component {
               <View style={{flex: 1}}>
                 
                   <HeaderToolkit 
-                    title='INTERACTIVE HELP NEEDED'
-                    instructions="Type in what's needed."
+                        title='Notwendige Hilfe Interaktive Toolkit'
+                        directions1='Sprechen Sie oder tippen Sie'
+                        directions2='Wer kommt?'
+                        directions3='Wann?'
+                        directions4='Was muss erledigt werden?'
+                        directions5='Speichern'  
+                        instructions="Drücken Sie ein Feld, um Informationen zu ändern."
                   />
 
-                  <View style={styles.containerGrid}> 
-  
-                    <View style={[styles.cell, {flex: 2}]}>
-                      <Text style={styles.titleCol}>Help Needed</Text>
-                    </View>
-                    <View style={styles.cell}> 
-                      <Text style={styles.titleCol}>Mo.</Text>
-                    </View>
-                    <View style={styles.cell}>
-                      <Text style={styles.titleCol}>Tu.</Text>
-                    </View>
-                    <View style={styles.cell}>
-                      <Text style={styles.titleCol}>Wed.</Text>
-                    </View>
-                    <View style={styles.cell}>
-                      <Text style={styles.titleCol}>Thu.</Text>
-                    </View>
-                    <View style={styles.cell}>
-                      <Text style={styles.titleCol}>Fri.</Text>
-                    </View>
-                    <View style={styles.cell}>
-                      <Text style={styles.titleCol}>Sa.</Text>
-                    </View> 
-                    <View style={styles.cell}>
-                      <Text style={styles.titleCol}>Sun.</Text>
-                    </View>
-  
+                  <View style={[styles.containerGrid,{backgroundColor: background}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Monday</Text>
+                      </View>
+                      {this.renderHelpers(6, 'monday')}
                   </View>
-  
-                  {this.renderHelpers(18)}
+
+                  <View style={[styles.containerGrid,{backgroundColor: 'white'}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Tuesday</Text>
+                      </View>
+                      {this.renderHelpers(6, 'tuesday')}
+                  </View>
+
+                  <View style={[styles.containerGrid,{backgroundColor: background}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Wednesday</Text>
+                      </View>
+                      {this.renderHelpers(6, 'wednesday')}
+                  </View>
+
+                  <View style={[styles.containerGrid,{backgroundColor: 'white'}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Thursday</Text>
+                      </View>
+                      {this.renderHelpers(6, 'thursday')}
+                  </View>  
+
+                  <View style={[styles.containerGrid,{backgroundColor: background}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Friday</Text>
+                      </View>
+                      {this.renderHelpers(6, 'friday')}
+                  </View>
+
+                  <View style={[styles.containerGrid,{backgroundColor: 'white'}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Saturday</Text>
+                      </View>
+                      {this.renderHelpers(6, 'saturday')}
+                  </View>
+
+                  <View style={[styles.containerGrid,{backgroundColor: background}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Sunday</Text>
+                      </View>
+                      {this.renderHelpers(6, 'sunday')}
+                  </View>
   
               </View>
   
@@ -219,28 +220,25 @@ const styles = StyleSheet.create({
     logoImage: {
       width: '100%',
     },
+    titleMed: {
+        fontSize: hp('2%'),
+        paddingVertical: hp('9%'),
+        fontWeight: 'bold',
+        alignSelf: 'center'
+     
+    },
     containerGrid: {
       //backgroundColor: '#1749FF',
       flex: 1,
       flexDirection: 'row',
       flexWrap: 'wrap',
     },
-
-    titleCol: {
-      color: 'white',
-      fontSize: hp('2%'),
-      alignSelf: 'center'
-    },
-
     cell: {
-      //flex: 1,
-      backgroundColor: '#000099',
-      //margin: 1,
-      //borderColor: '#ccc',
+      flex: 1,
       borderColor: 'black',
       borderWidth: 1,
-      height: hp('6%'),
-      width: wp('9.5%'),
+      height: hp('20%'),
+      //width: wp('9.5%'),
     },
 
 });

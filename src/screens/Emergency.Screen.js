@@ -148,109 +148,47 @@ class EmergencyScreen extends Component {
           <View style={styles.container}>
             <ScrollView>
 
-                <LinkToolkitWrapper 
-                  text={'Share Interactive Emergency Information Station Toolkit with family. Click toolkit.'}
-                  source={emergencyIcon}
-                  onPress={this.props.pressEmergency ? this.props.pressEmergency : this.handleEmergency}
-                />
+                        <LinkToolkitWrapper 
+                              text={'Teilen Sie das Interaktive Notfall-Informationsstation Toolkit mit Ihrer Familie (klicken Sie unten)'}
+                              source={emergencyIcon}
+                              onPress={this.handleEmergency}
+                            />
 
-                <HeadingText style={{fontWeight: 'bold'}}>Don’t wait. Get help.</HeadingText>
+                            {/* <HeadingText style={{fontWeight: 'bold'}}>Don’t wait. Get help.</HeadingText> */}
 
-                <MainText style={styles.bullets}>
-                {`\u2022`} Call 911 or your emergency number.   
-                </MainText>      
+                            <MainText style={styles.bullets}>
+                            {`\u2022`} Wenn Sie glauben, dass es ein Notfall ist - ist es wahrscheinlich einer! Holen Sie sich sofort Hilfe.    
+                            </MainText>      
 
-                <MainText style={styles.bullets}>
-                {`\u2022`} Report possible stroke, or another emergency. 
-                </MainText>    
+                            <MainText style={styles.bullets}>
+                            {`\u2022`} Schreiben Sie alle Informationen in das Interaktive Notfall-Informationsstation Toolkit.  
+                            </MainText>    
 
-                <MainText style={styles.bullets}>
-                {`\u2022`} Answer questions in clear, short answers.
-                    If you need a translator, ask immediately. 
-                </MainText>    
+                            <MainText style={styles.bullets}>
+                            {`\u2022`} Halten Sie es griffbereit. 
+                            </MainText>    
 
-                <MainText style={styles.bullets}>
-                {`\u2022`} Do not hang up first: Wait for instructions. 
-                </MainText> 
-                
-                <View style={{height: 30}}></View>
+                            {/* <MainText style={styles.bullets}>
+                            {`\u2022`} Do not hang up first: Wait for instructions. 
+                            </MainText> 
+                            
+                            <View style={{height: 30}}></View>
 
-                <View style={[styles.border, {height: 90}]}>    
-                      <TouchableOpacity onPress={() => Linking.openURL('https://abledata.acl.gov/new_products')}>
-                      <MainText style={styles.boxLink}>
-                          www.abledata.com
-                      </MainText>
-                      </TouchableOpacity>
-                      <Text style={styles.boxText}>Best adaptable product information - English Spanish</Text>
-                      <Text style={styles.boxText}>800-227-0216, 703-992-8313. TTY</Text>
-                      <Text style={styles.boxText}>abledata@neweditions.net Products to ease living.</Text>
+                            <HeadingText >In Emergency</HeadingText>
+                            
+                            <Link />   */}
 
-                </View>   
+                            <HeadingText>Organisieren Sie sich</HeadingText>
 
-
-                <View style={[styles.border, {height: 50}]}>    
-                      <TouchableOpacity onPress={() => Linking.openURL('https://www.acl.gov/')}>
-                      <MainText style={styles.boxLink}>
-                          www.acl.gov
-                      </MainText>
-                      </TouchableOpacity>
-                      <Text style={styles.boxText}>Community living information.</Text>
-                </View>
-
-
-                <View style={[styles.border, {height: 100}]}>
-              
-                      <TouchableOpacity onPress={() => Linking.openURL('https://www.naric.com')}>
-                        <MainText style={styles.boxLink}>
-                          https://www.naric.com
-                        </MainText>
-                      </TouchableOpacity>
-                      
-                      <Text style={styles.boxText}>National Rehabilitation Information Center/ NARIC </Text>
-                      <Text style={[styles.boxText,{fontSize: wp('3.5%')}]}>Leading disability-related information.  English/Spanish.</Text>
-                      <Text style={styles.boxText}>1-800-346-2742. English / Spanish</Text>
-                      
-                </View>
-
-                <View style={[styles.border, {height: 50}]}>
-                    <TouchableOpacity onPress={() => Linking.openURL('https://www.aphasia.org/site ')}>
-                    <MainText style={styles.boxLink}>
-                        https://www.aphasia.org/site 
-                    </MainText>
-                    </TouchableOpacity>
-
-                    <Text style={styles.boxText}>Find support/aphasia programs. English/Spanish</Text>
-                  
-                </View> 
-
-                <ImageContainer source={strokeLine} style={{width: wp('60%')}}/>
-
-                <View style={[styles.border, {height: 90}]}>
-                        <TouchableOpacity onPress={() => Linking.openURL('http://www.strokeassociation.org/STROKEORG/strokegroup')}>
-                        <MainText style={styles.boxLink}>
-                            http://strokeassociation.org 
-                        </MainText>
-                        </TouchableOpacity>
-                        <Text style={styles.boxText}>American Stroke Association</Text>
-                        <Text style={styles.boxText}>1-888-4-STROKE 1-888-478-7653</Text>
-                        <Text style={styles.boxText}>Learn CPR – Spanish, Chinese, Vietnamese</Text>
-
-                </View> 
-                
-                <Link />  
-
-                <HeadingText>Getting Organized</HeadingText>
-
-                <MainText style={styles.bullets}>
-                {`\u2022`} Consider using a notebook, cell phone or computer –whatever works for you with subjects 
-                – medications, physical therapy, speech, doctors, therapists’ notes. 
-                </MainText>
-                <MainText style={styles.bullets}>    
-                {`\u2022`} Keep handy names, phones, addresses of doctors, therapists, helpers, family, neighbors. 
-                 </MainText>
-                <MainText style={styles.bullets}>   
-                {`\u2022`} Save bills: Paid and Unpaid, receipts health-care-related purchases, papers for insurance. tax purposes.       
-                </MainText>
+                            <MainText style={styles.bullets}>
+                            {`\u2022`} Erwägen Sie, ein Notebook, ein Handy oder einen Computer zu nutzen – Machen Sie sich Notizen zu den Themen - Medikamente, Physiotherapie, Sprache, Ärzte, Therapeuten. 
+                            </MainText>
+                            <MainText style={styles.bullets}>    
+                            {`\u2022`} Schreiben Sie alle Namen, Telefonnummern, Adressen von Ärzten, Therapeuten, Helfern, Familie und Nachbarn auf. 
+                            </MainText>
+                            <MainText style={styles.bullets}>   
+                            {`\u2022`} Rechnungen speichern: Bezahlt und unbezahlt. Bewahren Sie Belege für Käufe in Bezug auf Ihre Gesundheitsversorgung, Dokumente der Versicherung und Steuern auf.       
+                            </MainText>
 
             </ScrollView>                
           </View>           

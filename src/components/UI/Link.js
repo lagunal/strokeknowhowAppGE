@@ -6,7 +6,7 @@ const Link = () => (
 
     <TouchableOpacity onPress={() => Linking.openURL('https://strokeknowhow.org')}>
         <View style={styles.wrapper}>
-            <Text style={styles.textMore}>More at</Text>
+            <Text style={styles.textMore}>Mehr bei</Text>
             <Text style={styles.textLink}>
                 StrokeKnowHow.org 
             </Text>

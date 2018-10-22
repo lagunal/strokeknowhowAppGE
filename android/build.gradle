@@ -15,6 +15,7 @@ buildscript {
 
 allprojects {
     repositories {
+        google()
         mavenLocal()
         jcenter()
         maven {
@@ -23,3 +24,4 @@ allprojects {
         }
     }
 }
+

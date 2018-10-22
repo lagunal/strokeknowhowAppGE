@@ -35,132 +35,132 @@ class ContentsScreen extends Component {
 
         <BodyScroll>
 
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.NewDayScreen', 'New Day')}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.NewDayScreen', 'Ein Neuer Tag')}>
                 <View style={styles.item}>
                     <Icon style={styles.icon} name="ios-home" size={30} md="md-home"></Icon>    
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            A New Day   
+                        Ein Neuer Tag   
                         </SubHeadingText>
                     </MainText>  
                     
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.MovingSafelyScreen','Moving Safely')}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.MovingSafelyScreen','Sich sicher bewegen')}>
                 <View style={styles.item}> 
                     <Icon style={styles.icon} name="ios-alert" size={30} md="md-alert"></Icon>  
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Moving Safely
+                        Sich sicher bewegen
                         </SubHeadingText>
                     </MainText>  
                     
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.WeeklyPlanScreen','Weekly Plan')}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.WeeklyPlanScreen','Ein Wochenplan')}>
                 <View style={styles.item}> 
                 <Icon style={styles.icon} name="md-calendar" size={30} md="md-calendar"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Weekly Plan
+                        Ein Wochenplan
                         </SubHeadingText>
                     </MainText>  
                     
                 </View>    
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.MedicationsScreen','Medications')}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.MedicationsScreen','Medikamente')}>
                 <View style={styles.item}> 
                 <Icon style={styles.icon} name="ios-medkit" size={30} md="md-medkit"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Medications
+                        Medikamente
                         </SubHeadingText>
                     </MainText>  
                     
                 </View>    
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BladderControlScreen','Bladder Control')}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BladderControlScreen','Blasenkontrolle')}>
                 <View style={styles.item}> 
                 <Icon style={styles.icon} name="ios-man" size={30} md="md-man"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Bladder Control
+                        Blasenkontrolle
                         </SubHeadingText>
                     </MainText>  
                     
                 </View>    
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BloodPressureScreen','Blood Pressure')}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BloodPressureScreen','Blutdruck')}>
                 <View style={styles.item}> 
                 <Icon style={styles.icon} name="ios-heart" size={30} md="md-heart"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Blood pressure
+                        Blutdruck
                         </SubHeadingText>
                     </MainText>  
                     
                 </View>    
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.RangeMotionScreen','Range of Motion')}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.RangeMotionScreen','Bewegungsfreiheit')}>
                 <View style={styles.item}> 
                 <Icon style={styles.icon} name="ios-walk" size={30} md="md-walk"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Range of Motion
+                        Bewegungsfreiheit
                         </SubHeadingText>
                     </MainText>  
                     
                 </View>    
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.SkinCareScreen','Skin Care')}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.SkinCareScreen','Hautpflege')}>
                 <View style={styles.item}> 
                 <Icon style={styles.icon} name="ios-finger-print" size={30} md="md-finger-print"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Skin Care
+                        Hautpflege
                         </SubHeadingText>
                     </MainText>
                     
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.GettingUpScreen','Getting Up')}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.GettingUpScreen','Aufstehen')}>
                 <View style={styles.item}> 
                 <Icon style={styles.icon} name="ios-happy" size={30} md="md-happy"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Getting Up 
+                        Aufstehen
                         </SubHeadingText>
                     </MainText>
                     
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BrainBodyScreen','Brain/Body')}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BrainBodyScreen','Gehirn / Körper')}>
                 <View style={styles.item}>
                 <Icon style={styles.icon} name="ios-body" size={30} md="md-body"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Brain/Body
+                        Gehirn / Körper
                         </SubHeadingText>
                     </MainText>  
                     
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.EmergencyScreen','Emergency')}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.EmergencyScreen','Notfall')}>
                 <View style={styles.item}>
                 <Icon style={styles.icon} name="ios-warning" size={30} md="md-warning"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Emergency
+                        Notfall
                         </SubHeadingText>
                     </MainText>  
                     

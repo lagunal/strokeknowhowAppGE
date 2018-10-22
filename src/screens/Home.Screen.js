@@ -32,10 +32,10 @@ const brainImage = require('../assets/brain-body.png');
 const emergencyIcon = require('../assets/emergency-station-icon.png');
 const strokeLine = require('../assets/helpline-logo.png');
 const bioImage = require('../assets/bio.jpg');
-const weeklyScheduleIcon = require('../assets/fotoWeeklySchedule.jpg');
-const helpNeededIcon = require('../assets/fotohelpneeded.jpg');
-const medicationIcon = require('../assets/FotoMedication.jpg');
-const physicalIcon = require('../assets/FotoPhysicalTherapy.jpg');
+const weeklyScheduleIcon = require('../assets/Weekly_Schedule_German_image.jpg');
+const helpNeededIcon = require('../assets/helpneeded_german.png');
+const medicationIcon = require('../assets/Medication_German_Image.jpg');
+const physicalIcon = require('../assets/Formulario_Terapia_Fisica_Image.jpg');
 
 const THRESHOLD = 200;
 
@@ -47,15 +47,15 @@ class HomeScreen extends Component {
 
   state = {
     videoAnimationPaused: true,
-    videoRobPaused: true,
+    //videoRobPaused: true,
     position: {
         start: null,
         end: null,
     },
-    positionVideoRob: {
-        startRob: null,
-        endRob: null,
-    }
+    // positionVideoRob: {
+    //     startRob: null,
+    //     endRob: null,
+    // }
   };
 
   handleVideoLayout = (e) => {
@@ -65,25 +65,25 @@ class HomeScreen extends Component {
     this.state.position.end = this.state.position.start + e.nativeEvent.layout.height + THRESHOLD;
   };
 
-  handleVideoLayoutRob = (e) => {
-    const { height } = Dimensions.get("window");
+//   handleVideoLayoutRob = (e) => {
+//     const { height } = Dimensions.get("window");
     
-    if (height > 600) {
-        this.state.positionVideoRob.startRob = 11300 + height - THRESHOLD;
-        this.state.positionVideoRob.endRob = this.state.positionVideoRob.startRob + 300 + THRESHOLD;
-    } else {
-        this.state.positionVideoRob.startRob = 9800 + height - THRESHOLD;
-        this.state.positionVideoRob.endRob = this.state.positionVideoRob.startRob + 300 + THRESHOLD;
-    }
-  };
+//     if (height > 600) {
+//         this.state.positionVideoRob.startRob = 11300 + height - THRESHOLD;
+//         this.state.positionVideoRob.endRob = this.state.positionVideoRob.startRob + 300 + THRESHOLD;
+//     } else {
+//         this.state.positionVideoRob.startRob = 9800 + height - THRESHOLD;
+//         this.state.positionVideoRob.endRob = this.state.positionVideoRob.startRob + 300 + THRESHOLD;
+//     }
+//   };
 
   handleScroll = (e) => {
     
     const scrollPosition = e.nativeEvent.contentOffset.y;
     const paused = this.state.videoAnimationPaused;
-    const pausedRob = this.state.videoRobPaused;
+    //const pausedRob = this.state.videoRobPaused;
     const { start, end } = this.state.position;
-    const { startRob, endRob } = this.state.positionVideoRob;
+    //const { startRob, endRob } = this.state.positionVideoRob;
     // console.log('scroll ' + scrollPosition);
     // console.log('start ' + this.state.positionVideoRob.startRob);
     // console.log('end ' + this.state.positionVideoRob.endRob);
@@ -97,11 +97,11 @@ class HomeScreen extends Component {
       this.setState({ videoAnimationPaused: true });
     }
     //Video Rob
-    if (scrollPosition > startRob && scrollPosition < endRob && pausedRob) {
-        this.setState({ videoRobPaused: false });
-    } else if (scrollPosition < startRob || scrollPosition > endRob && !pausedRob) {
-        this.setState({ videoRobPaused: true });
-    }
+    // if (scrollPosition > startRob && scrollPosition < endRob && pausedRob) {
+    //     this.setState({ videoRobPaused: false });
+    // } else if (scrollPosition < startRob || scrollPosition > endRob && !pausedRob) {
+    //     this.setState({ videoRobPaused: true });
+    // }
    // console.log(this.state.videoAnimationPaused);
   };  
 
@@ -186,26 +186,22 @@ class HomeScreen extends Component {
                         <Image source={require('../assets/home.png')} style={styles.imageDefault}/>  
 
                         <MainText style={{marginBottom: 0}}>    
-                            I was a sports writer of a major newspaper,  who had a stroke in a New York subway during rush hour.  In the ambulance, 
-                            I overheard the word ‘stroke,’ and realized they were talking about me. 
-                            Out of the hospital in five days: I could stand, not walk.
-                            Insurance paid for a handful of physical therapy. NOW WHAT?
+                          Ich war Sportjournalist bei einer großen Zeitung, während der Hauptverkehrszeit erlitt ich einen Schlaganfall in einer New Yorker U-Bahn hatte. Im Krankenwagen hörte ich das Wort "Schlaganfall" und erkannte, dass sie über mich sprachen. Nach fünf Tagen kam ich aus dem Krankenhaus: Ich konnte stehen, aber nicht gehen. Die Versicherung zahlte nur wenige Termine bei der Physiotherapie. Was nun?
                         </MainText>
                         <PictureLegend style={{marginRight: wp('10%') }}>&mdash; Mike</PictureLegend>    
                         
-                        <HeadingText>A New Day</HeadingText>
+                        <HeadingText>Ein Neuer Tag</HeadingText>
                         
                         <Image source={require('../assets/newDay.png')} style={styles.imageDefault}/>
                         
                         <MainText style={styles.bullets}>
-                            {`\u2022`} It’s important to get out of bed and dress every day. Complete bed rest deconditions the body. Lowers the capacity of heart’s pumping rate, reduces lung capacity, alters blood pressure, increases chance 
-                            of pneumonia. 
+                            {`\u2022`} Es ist wichtig, jeden Tag aufzustehen und sich anzuziehen. Komplette Bettruhe degeneriert den Körper, senkt die Pumpleistung des Herzens, reduziert die Lungenkapazität, verändert den Blutdruck und erhöht die Wahrscheinlichkeit einer Lungenentzündung. 
                         </MainText>
                         <MainText style={styles.bullets}>  
-                            {`\u2022`} Do slow stretches in bed to ease stiffness. Roll from side to side. 
+                            {`\u2022`} Machen Sie langsame Dehnungen, um die Steifigkeit zu verringern. Rollen Sie von einer Seite zur anderen Seite.
                         </MainText>
                         <MainText style={styles.bullets}>  
-                            {`\u2022`} Before moving take your time, avoid quick changes to avoid becoming dizzy.  
+                            {`\u2022`} Bevor Sie sich bewegen, nehmen Sie sich Zeit, vermeiden Sie schnelle Änderungen, damit es ihnen nicht schwindelig wird.   
                         </MainText>
 
                 </View>
@@ -214,7 +210,7 @@ class HomeScreen extends Component {
                       <View>
                               <TouchableOpacity onPress={this.playVideoAnimation}>
                                   <View style={{padding: 20}}>
-                                      <MainText><SubHeadingText style={{marginBottom: 0, fontSize: wp('3.5%')}}>Touch video to open full screen player &rarr;</SubHeadingText></MainText>
+                                      <MainText><SubHeadingText style={{marginBottom: 0, fontSize: wp('3.5%')}}>Berühren Sie Video, um den Vollbild-Player zu öffnen &rarr;</SubHeadingText></MainText>
                                       <Video
                                         source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/08/16_Transfer_from_bed_to_wheelchair.mp4"}}
                                         ref={(ref) => {
@@ -236,36 +232,34 @@ class HomeScreen extends Component {
                                   </View>
                               </TouchableOpacity> 
 
-                              <HeadingText>Helpers Protecting Themselves</HeadingText>
+                              <HeadingText>Selbstschutz für Helfer</HeadingText>
                               
                               <MainText style={styles.bullets}>  
-                              {`\u2022`} When moving someone, keep your hips and knees slightly bent. Stand close to person – too far away puts a strain on your back. 
+                              {`\u2022`} Wenn Sie jemanden bewegen, halten Sie Ihre Hüften und Knie leicht gebeugt. Stehen Sie nah an der Person - zu weit weg belastet Ihren Rücken.  
                               </MainText>
                               <MainText style={styles.bullets}>
-                              {`\u2022`} Stand with feet slightly apart, one foot ahead of the other to keep your balance, shift your weight if necessary.
+                              {`\u2022`} Stehen Sie mit Ihren Füßen leicht auseinander, einen Fuß vor dem anderen, um Ihr Gleichgewicht zu halten, verlagern Sie Ihr Gewicht, wenn es nötig ist.
                               </MainText>
-                              <HeadingText>Share the Care</HeadingText>
+                              <HeadingText>Teilen Sie die Pflege</HeadingText>
 
                               <Image source={familyImage} style={styles.imageDefault}/>
 
                               <MainText style={{marginBottom: 0}}>  
-                                  When my wife, Tina, had a stroke,
-                                    it hit our whole family, and we each had 
-                                    a job to do– even the kids.
+                              Als meine Frau Tina, einen Schlaganfall hatte, betraf dies unsere ganze Familie. Wir hatten alle eine Aufgabe zu erledigen − sogar die Kinder.
                               </MainText>
                               <PictureLegend >&mdash; Javier, Lima, Peru</PictureLegend>
 
                               
-                                <HeadingText>Questions Families {`\n`} Ask Themselves</HeadingText>
+                                <HeadingText>Fragen, die sich die Familien stellt</HeadingText>
                               
                               <MainText style={styles.bullets}>
-                                  {`\u2022`} Who will handle personal care; physical therapy? When?
+                                  {`\u2022`} Wer übernimmt die persönliche Pflege? Physiotherapie? Wann?
                               </MainText>
                               <MainText style={styles.bullets}>
-                              {`\u2022`} Shop, share housekeeping? When? 
+                              {`\u2022`} Wer wird die Einkäufe tätigen und den Reinigungsservice teilen? Wann?
                               </MainText>
                               <MainText style={styles.bullets}>     
-                                  {`\u2022`} Drive to doctor and therapy appointments. 
+                                  {`\u2022`} Wer fährt mit zu Terminen beim Arzt und Therapien? 
                               </MainText>        
                     </View>
 
@@ -273,88 +267,84 @@ class HomeScreen extends Component {
                     <View>
 
                     <LinkToolkitWrapper 
-                      text={'Share Help Needed Toolkit with family. Click Toolkit.'}
+                      text={'Teilen Sie Notwendige Hilfe Interaktive Toolkit mit der Familie (klicken Sie unten)'}
                       source={helpNeededIcon}
                       onPress={this.handleHelpNeeded}
                     />
 
 
-                    <HeadingText>Let's Talk About Safety</HeadingText>
+                    <HeadingText>Lassen Sie uns über Sicherheit sprechen</HeadingText>
 
 
                     <Image source={safetyImage} style={styles.imagePat}/>
 
                     <MainText>
-                        Pat became a wheelchair user after a car crash. 
-                        Her husband, Bill made their home safer and accessible.     
+                    Pat wurde nach einem Autounfall Rollstuhlfahrer. Ihr Ehemann machte das Zuhause sicherer und zugänglicher.      
                     </MainText>
                     <MainText style={styles.bullets}>      
-                        {`\u2022`} To widen the door opening for Pat’s wheelchair, the molding was removed.    
+                        {`\u2022`} Um die Türöffnung für Pat’s Rollstuhl zu verbreitern, wurden die Formteile entfernt und die Scharniere ausgewechselt.     
                     </MainText>
                     <MainText style={styles.bullets}>      
-                        {`\u2022`} Light switches, toilet-tissue dispensers, towel racks to be easily reached were lowered. 
+                        {`\u2022`} Lichtschalter, Toilettenpapierspender und Handtuchhalter wurden abgesenkt, um leicht erreichbar zu sein. 
                     </MainText>
                     <MainText style={styles.bullets}>      
-                        {`\u2022`} A raised toilet makes transfers easier. 
-                        A grab bar, and on side of the toilet ensure safer transfers.   
+                        {`\u2022`} Eine erhöhte Toilette erleichterte die übertragung. Ein Haltegriff and der Seite der Toilette sorgt für eine sichere Uebertragung.   
                     </MainText>
                     <MainText style={styles.bullets}>      
-                        {`\u2022`} The mirrored medicine cabinet was lowered.   
+                        {`\u2022`} Der Spiegelschrank für die Medikamente wurde gesenkt.    
                     </MainText>
                     <MainText>
-                        Falls are the #1 cause of home injuries. Wet bathroom floors lead 
-                        home injuries. Millions return to hospitals a month after discharge.     
+                        Stürze sind die häufigste Ursache von Verletzungen, besonders auf nassen Badezimmerböden beim Transfer. Viele kehren einen Monat nach der Entlassung in das Krankenhaus zurück.      
                     </MainText>
 
 
-                    <HeadingText>A Weekly Plan</HeadingText>
+                    <HeadingText>Ein Wochenplan</HeadingText>
 
 
                     <Image source={familyPlanImage} style={styles.imageWeekly}/>
 
                     <MainText>
-                        Rachel’s granddaughter shows her how to organize a weekly schedule. Tel Aviv, Israel.  
+                    Rachels Enkelin zeigt ihr, wie man einen Wochenplan organisiert. Tel Aviv, Israel.  
                     </MainText>
 
                     
-                      <SubHeadingText>Benefits of a Weekly Schedule</SubHeadingText>
+                      <SubHeadingText>Vorteile eines wöchentlichen Zeitplans</SubHeadingText>
 
                     <MainText style={styles.bullets}>      
-                        {`\u2022`} Keeping track of time organizes each day. Prioritize what you need to take place, and give it a time.  
+                        {`\u2022`} Um den Überblick über die Zeit zu behalten, wird jeder Tag organisiert. Setzen Sie Prioritaeten, was Sie tun müssen, und geben Sie sich Zeit.  
                     </MainText>
                     <MainText style={styles.bullets}>  
-                        {`\u2022`} Have stimulating times, others in between, that are quiet — to sit down, nap, simply relax.    
+                        {`\u2022`} Wechslen Sie anregende Zeiten, mit einem Zwischenspielen von ruhigen Zeiten, um zu sitzen, ein Nickerchen zu machen, sich zu entspannen.    
                     </MainText>
 
                     <LinkToolkitWrapper 
-                      text={'Share Weekly Schedule Toolkit with family. Click toolkit'}
+                      text={'Teilen Sie Wöchentlich Programmieren Interaktive Toolkit mit Ihrer Familie (klicken Sie unten)'}
                       source={weeklyScheduleIcon}
                       onPress={this.handleSchedule}
                     />
 
                     <MainText style={styles.bullets}>
-                    {`\u2022`} After a stroke, each family looks at the care, their living and medical expenses needed, and how each one will help.   
+                    {`\u2022`} Nach einem Schlaganfall betrachtet jede Familie die notwendige Pflege, ihre Lebens- und medizinischen Kosten und wie jeder hilft.   
                     </MainText>
                     <MainText style={styles.bullets}> 
-                    {`\u2022`} Ask a physical therapist to evaluate the ability to move, talk, understand, handle personal care. 
+                    {`\u2022`} Bitten Sie einen Physiotherapeuten, die Fähigkeit sich zu bewegen, zu sprechen, des Betreffenden zu beurteilen und wie er mit der persönlichen Pflege umgehen soll. 
                     </MainText>
                     <MainText style={styles.bullets}>
-                    {`\u2022`} A psychologist can evaluate the emotional affects, and ways the family can cope with the changes.
+                    {`\u2022`} Ein Psychologe kann die emotionalen Auswirkungen und die Art und Weise, wie die Familie mit den Veränderungen umgeht, bewerten.
                     </MainText>
 
 
                     <HeadingText>
-                    Personal Cleanliness
+                    Persönliche Sauberkeit
                     </HeadingText>
 
 
                     <MainText style={styles.bullets}> 
-                    {`\u2022`} To prevent infection, protect skin, and for comfort, a loved one needs to be washed or bathed every day with warm water and soap. 
-                          Dry, then massaged with soothing lotion. 
+                    {`\u2022`} Um eine Infektion zu verhindern, schützen Sie die Haut. Für das Wohlbefinden muss ein geliebter Mensch, jeden Tag mit warmem Wasser und Seife gewaschen oder gebadet werden. Gut abtrocknen, danach mit beruhigender Lotion einmassieren. 
                     </MainText>
 
                     <MainText style={styles.bullets}>  
-                    {`\u2022`} All family members, helpers must wash their hands frequently – after using bathroom, before eating.
+                    {`\u2022`} Alle Familienmitglieder, Helfer müssen sich häufiger die Hände waschen - nach dem Bad, vor dem Essen usw.
                     </MainText>
 
                     </View>
@@ -364,16 +354,16 @@ class HomeScreen extends Component {
 {/*************** Medications Screen  ********************************/}
 
                     <View>
-                        <HeadingText>Organizing Medications</HeadingText>
+                        <HeadingText>Das organisieren der Medikamente</HeadingText>
 
                         <Image source={medicationsImage} style={styles.imageDefault} />
                         
                         <MainText>
-                            Ruth, M. 78, uses a pill organizer and the Interactive Medication Toolkit. Ruth’s daughter, can also see the Toolkit.
+                        Ruth, M. 78, verwendet einen Pillen-Organisator und das Interaktive Medikamenten Toolkit. Ihre Tochter kann das Toolkit einsehen und kontrollieren ob die Mutter ihre Medikamente einnimmt.
                         </MainText>
 
                         <LinkToolkitWrapper 
-                          text={'Share Medication toolkit with family. Click Toolkit'}
+                          text={'Teilen Sie das Interaktive Medikamenten Toolkit für Ihre Familie (klicken Sie unten)'}
                           source={medicationIcon}
                           onPress={this.handleMedication}
                         />
@@ -385,60 +375,56 @@ class HomeScreen extends Component {
 
                     <View>
 
-                        <HeadingText>Bladder Control</HeadingText>
+                        <HeadingText>Blasenkontrolle</HeadingText>
 
                         <Image source={bladderImage} style={styles.image}/>
 
                         <MainText style={styles.bullets}>  
-                        {`\u2022`} Ask a doctor or nurse for help in reestablishing bladder control. 
-                                  Brain and bladder need to keep dry on your schedule.
+                        {`\u2022`} Fragen Sie einen Arzt oder eine Krankenschwester um Hilfe bei der Wiederherstellung der Blasenkontrolle. 
                         </MainText>
                         <MainText style={styles.bullets}>  
-                        {`\u2022`} At first, urinate every hour, not wait for the urge, until urination is controlled. 
-                                  With greater control, urinate every 3 to 4 hours.  
+                        {`\u2022`} Zuerst urinieren Sie jede Stunde, warten Sie nicht auf den Drang, bis das Wasserlassen unter Kontrolle haben. Bei besserer Kontrolle alle 3 bis 4 Stunden urinieren.  
                         </MainText>
 
-                        <HeadingText>Bowel Control</HeadingText>
+                        <HeadingText>Wiedererlangung der Darmkontrolle</HeadingText>
 
                         <MainText style={styles.bullets}>  
-                        {`\u2022`} Help is needed in re-training the brain’s ability to control movements. At first, empty on a routine. 
-                                  Then, increase the time to relieve oneself. 
+                        {`\u2022`} Hilfe ist erforderlich, um die Fähigkeit des Gehirns und Bewegungen zu kontrollieren und neu zu trainieren. Zuerst leeren in regelmaessiger Routine. Dann erhöhen Sie den Zeitabstand, um sich zu erleichtern. 
                         </MainText>
                         <MainText style={styles.bullets}>  
-                        {`\u2022`} Constipation is an effect of stroke, also caused by certain medications, aging, inactivity, and low-fiber. 
+                        {`\u2022`} Verstopfungen sind eine Folge von Schlaganfall, die auch durch bestimmte Medikamente, Alterung, Inaktivität und faserarmes Essen verursacht werden.  
                         </MainText>
 
-                        <HeadingText>Drinking Water</HeadingText>
+                        <HeadingText>Wasser trinken</HeadingText>
 
                         <MainText>  
-                        {`\u2022`} We depend on drinking water to live. After a stroke, swallowing may be difficult, drink sips of water often to avoid dehydration. 
-                                  Do not use a straw.                 
+                        {`\u2022`} Wir sind auf das Trinken von Wasser angewiesen, um zu leben. Nach einem Schlaganfall kann das Schlucken schwierig sein, trinken Sie oft Wasser, um Austrocknung zu vermeiden. Verwenden Sie keinen Strohhalm.                  
                         </MainText>
 
-                        <HeadingText>Swallowing</HeadingText>
+                        <HeadingText>Schlucken</HeadingText>
 
                         <Image source={swallowingImage} style={styles.imageDefault} />
 
                         <MainText>  
-                            A speech therapist or nurse can help in retraining swallowing. 
+                          Ein Sprachtherapeut oder eine Krankenschwester kann bei der Umschulung helfen. 
                         </MainText>
                         <MainText style={styles.bullets}>
-                        {`\u2022`} Act quickly in a swallowing emergency. Learn CPR. 
+                        {`\u2022`} Handeln Sie schnell bei einem Schluck-Notfall. Lernen Erste Nothilfe. 
                         </MainText>
                         <MainText style={styles.bullets}>   
-                        {`\u2022`} After eating, check for food in cheeks, under tongue, upper palate.              
+                        {`\u2022`} Nach dem Essen, nach Essen in den Wangen, unter der Zunge oder am oberen Gaumen schauen.              
                         </MainText>
 
-                        <HeadingText>Questions for a Doctor</HeadingText>
+                        <HeadingText>Fragen an Ihren Arzt</HeadingText>
 
                         <MainText style={styles.bullets}>  
-                        {`\u2022`} What should we know about the stroke? High blood pressure? Diabetes?  Numbers to report? 
+                        {`\u2022`} Was sollten wir über den Schlaganfall wissen? Bluthochdruck? Diabetes? 
                         </MainText>  
                         <MainText style={styles.bullets}>  
-                        {`\u2022`} Side effects of medicine to report?
+                        {`\u2022`} Nebenwirkungen der Medikamente zu melden?
                         </MainText>
                         <MainText style={styles.bullets}>  
-                        {`\u2022`} Has hospital report been sent to my other doctors?
+                        {`\u2022`} Wurde mein Krankenhausbericht an meinen Hausarzt gesendet?
                         </MainText>
 
                     </View>        
@@ -448,58 +434,55 @@ class HomeScreen extends Component {
 
                     <View>
 
-                          <HeadingText>Blood Pressure</HeadingText>
+                          <HeadingText>Blutdruck</HeadingText>
 
                           <MainText style={styles.bullets}>
-                                {`\u2022`} Systolic pressure (S), is the highest pressure during a heartbeat. 
+                                {`\u2022`} Systolischer Druck (S) ist der höchste Druck während eines Herzschlags. 
                                 </MainText>
                                 <MainText style={styles.bullets}>  
-                                {`\u2022`} Diastolic pressure (D), is the lowest pressure between beats.
+                                {`\u2022`} Diastolische Druck (D) ist der niedrigste Druck zwischen den Herzschlägen.
                                 </MainText>
                                 <MainText style={styles.bullets}>   
-                                {`\u2022`} Normal blood pressure, less than 120 (S) and less than 80 (D).
+                                {`\u2022`} Normaler Blutdruck, weniger als 120 (S) und weniger als 80 (D).
                                 </MainText>
                                 
                                 <MainText style={styles.bullets}>
-                                {`\u2022`} Elevated between 120-129 (S) and less than 80 (D).
+                                {`\u2022`} Erhöht zwischen 120-129 (S) und weniger als 80 (D).
                                 </MainText>
                                 <MainText style={styles.bullets}>  
-                                {`\u2022`} High Blood Pressure Hypertension state 1, 130-139 (S) or 80-89 (D).
+                                {`\u2022`} Bluthochdruck. Bluthochdruckzustand 1, 130-139 (S) oder 80-89 (D).
                                 </MainText>
                                 <MainText style={styles.bullets}>  
-                                {`\u2022`} High Blood Pressure Hypertension state 2, 140 or higher (S) or 90 or higher (S).
+                                {`\u2022`} Bluthochdruck. Bluthochdruckzustand 2, 140 oder höher (S) oder 90 oder höher (S).
                                 </MainText>
                                 <MainText style={styles.bullets}>  
-                                {`\u2022`} Hypertension crisis, consult your doctor immediately, higher than 180 (S) and/or higher than 120 (D).
+                                {`\u2022`} Hypertonie Krise: Fragen Sie sofort Ihren Arzt, mehr als 180 (S) oder mehr als 120 (D).
                             </MainText>
 
-                          <HeadingText>Testing Blood Sugar </HeadingText>
+                          <HeadingText>Blutzucker testen</HeadingText>
 
                           <MainText style={styles.bullets}>
-                          {`\u2022`} Blood glucose test is used for diabetes. Results are used to regulate medications, diet.  
+                          {`\u2022`} Der Blutzuckertest wird bei Diabetes verwendet. Die Ergebnisse werden verwendet, um Medikamente und Diät zu regulieren.  
                           </MainText>
                           <MainText style={styles.bullets}>  
-                          {`\u2022`} When to test? Numbers to report.  
+                          {`\u2022`} Fragen Sie nach, wann Sie testen muessen und welche Zahlen Sie melden möchten.  
                           </MainText>
 
 
-                          <HeadingText>Physical Therapists</HeadingText>
+                          <HeadingText>Fragen für den Physiotherapeuten</HeadingText>
 
                           <MainText style={styles.bullets}>
-                          {`\u2022`} How to continue physical therapy?  
+                          {`\u2022`} Wie setzt man die Physioherapie Zuhause fort?  
                           </MainText>
                           <MainText style={styles.bullets}>  
-                          {`\u2022`} Exercises to do? How? How often? 
+                          {`\u2022`} Welche Übungen sind notwnedig? Wie oft? 
                           </MainText>
                           <MainText style={styles.bullets}>  
-                          {`\u2022`} How long?
-                          </MainText>
-                          <MainText style={styles.bullets}>  
-                          {`\u2022`} Benefits? Purpose?
+                          {`\u2022`} Für wie lange? Leistungen? Zweck?
                           </MainText>
 
                           <LinkToolkitWrapper 
-                            text={'Share Physical Therapy Toolkit with family. Click toolkit.'}
+                            text={'Teilen Sie das Physiotherpie Interaktive Toolkit mit Ihrer Familie (klicken Sie unten)'}
                             source={physicalIcon}
                             onPress={this.handlePhysical}
                           />
@@ -510,41 +493,33 @@ class HomeScreen extends Component {
 {/*************** Range of motion Screen  ********************************/}
 
                       <View>
-                            <HeadingText>Range-of-Motion</HeadingText>
+                            <HeadingText>Bewegungsfreiheit und Bewegungsübungen</HeadingText>
                 
                             <MainText>
-                                Range-of-motion exercises can keep joints
-                                moving freely and fully. Exercises are to do either by yourself or with someone. 
+                            Range-of-motion Übungen hält Knochen und Gelenke geschmeidig. Machen Sie die Übungen alleine oder zu zweit. 
                             </MainText>
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Do exercises in a slow, smooth motion.  
-                                      A helper firmly holds joint exercised with one hand, other to create, guide movement. 
-                                      Helpers stop exercise when a joint is not moving freely, or there is discomfort. 
+                            {`\u2022`} Machen Sie Übungen in einer langsamen, sanften Bewegung. Ein Helfer hält fest das Gelenk mit einer Hand, andere, um Bewegung zu führen. Helfer stoppen, wenn sich ein Gelenk nicht frei bewegt oder Unbehagen auftritt.  
                             </MainText>  
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Move and stretch muscles in a weakened arm and leg several times a day, 
-                            to prevent contractures, shortening of muscles around joints that cause tight, painful bands.
+                            {`\u2022`} Bewegung und Dehnung der Muskeln in einem geschwächten Arm und Bein mehrmals am Tag, um Kontrakturen zu vermeiden oder Muskelverkürzungen am Gelenk, die enge, schmerzhafte Bänder verursachen.
                             </MainText>          
 
-                            <HeadingText>Body Positioning</HeadingText>
+                            <HeadingText>Körperpositionierung</HeadingText>
                             <MainText>
-                                At all times — whether lying in bed, sitting, or walking — good body positioning is essential for the body's soundness. 
-                                To prevent contractures. 
+                            Zu jeder Zeit - ob im Bett liegend, sitzend oder gehend - ist eine gute Körperpositionierung für die Gesundheit des Körpers unerlässlich. Kontrakturen verhindern. 
                             </MainText>
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Position of your head affects muscle tone of trunk, arms, legs. 
-                                        If turned to one side, interferes with balance. ability to move about. 
+                            {`\u2022`} Die Position Ihres Kopfes beeinflusst den Muskeltonus von Rumpf, Armen und Beinen. Wenn nur auf eine Seite gedreht wird, stört das das Gleichgewicht und die Fähigkeit sich zu bewegen. 
                             </MainText>  
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Weight needs to be evenly distributed. Use a pillow to prop up lowered side.  
+                            {`\u2022`} Das Gewicht muss gleichmäßig verteilt sein. Verwenden Sie ein Kissen, um die abgesenkte Seite zu stützen. 
                             </MainText>   
                             <MainText style={styles.bullets}>
-                            {`\u2022`} To hold your shoulder joint in place, support forearm with a pillow. 
-                                      Have your shoulder and arm stretched forward.
+                            {`\u2022`} Um Ihr Schultergelenk an Ort und Stelle zu halten, stützen Sie Ihren Unterarm mit einem Kissen. Lassen Sie Ihre Schulter und Ihren Arm nach vorne strecken.
                             </MainText>
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Lift weaker wrist with sound hand to bring arm forward. 
-                                      Keep wrist extended, fingers straight as possible. 
+                            {`\u2022`} Heben Sie das schwächere Handgelenk mit der gesunden Hand an, um den Arm nach vorne zu bringen. Halten Sie das Handgelenk gestreckt, Finger gerade wie möglich. 
                             </MainText>   
                             
                             <Link />
@@ -554,173 +529,152 @@ class HomeScreen extends Component {
 {/*************** Skin Care Screen  ********************************/}
 
                       <View>
-                            <HeadingText>Skin Care</HeadingText>
+                            <HeadingText>Hautpflege</HeadingText>
 
                             <Image source={skinImage} style={styles.imageDefault} />
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Check skin every day for redness, and injury – especially when skin is fragile, poor circulation, diabetic.
+                            {`\u2022`} Überprüfen Sie die Haut jeden Tag auf Rötungen und Verletzungen - besonders bei empfindlicher Haut, schlechter Durchblutung oder Diabetikern.
                             </MainText>
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Pressure sore or bruise requires immediate attention for medication and treatment.
+                            {`\u2022`} Druckgeschwüre oder Prellungen erfordern sofortige Aufmerksamkeit und müssen Medikamentös und behandelt werden.
                             </MainText>
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Reposition <Text style={{textDecorationLine: 'underline'}}>at least every two hours</Text> when in bed for extended time. 
+                            {`\u2022`} Nehmen Sie <Text style={{textDecorationLine: 'underline'}}>mindestens alle zwei Stunden</Text> im Bett  eine andere Position ein für eine längere Zeit. 
                             </MainText>
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Helpers must <Text style={{textDecorationLine: 'underline'}}>lift not pull</Text> someone across sheet, to avoid friction injuries. 
+                            {`\u2022`} Helfer müssen <Text style={{textDecorationLine: 'underline'}}>anheben, nicht über das Tuch ziehen</Text> um Reibungsverletzungen zu vermeiden.  
                             </MainText>
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Pressure sores, skin breakdown occur from infrequent turning, changing positions.  
+                            {`\u2022`} Druckgeschwüre, Hautschädigung treten durch seltenes Drehen, Ändern von Positionen auf  
                             </MainText>
                       </View>           
 
 {/*************** Getting Up Screen  ********************************/}
 
                       <View>
-                            <HeadingText>Kufungisisa {`\n`}
-                            Thinking too much/depressed in Zimbabwe</HeadingText>
+                            <HeadingText>Depression</HeadingText>
+
+                            
+                            <Image source={skinImage2} style={styles.imageGetting}/>
+
+                            <MainText style={{marginBottom: 0}}>
+                            Es ist nicht zu sagen, wer oder was kommen wird, um Ihnen den Willen und die Entschlossenheit zu geben, vorwärts zu gehen - Ihre Offenheit ist es, die zählt.
+                            Es könnte Ihre Frau oder Ihr Ehemann sein, Ihre Kinder, Gott, Freunde, oder Leute, die ähnliche Erfahrungen wie Sie erlebt haben.  
+                            </MainText>
+                            <PictureLegend >&mdash; William</PictureLegend>
+
+                            <HeadingText>Kufungisisa {`\n`} (Traurigkeit in Simbabwe)</HeadingText>
 
                             <Image source={kufungisisaImage} style={styles.imageDefault}/>
 
                             <MainText>
-                            After my stroke, depression hit me hard. I am the youngest lawyer in the court, suddenly I could not see what my future held. 
+                            Nach meinem Schlaganfall hat mich die Depression schwer getroffen. Ich bin der jüngste Anwalt bei Gericht, plötzlich konnte ich nicht mehr sehen, was meine Zukunft bereit hielt. 
                             </MainText>
                             <MainText>  
-                            My wife continued my care until she had to return to her job for our income. Then my uncle and a neighbor came.
+                            Meine Frau teilte meine Sorgen, bis sie für unser gemeinsames Auskommen zu ihrem Job zurückkehren musste. Dann kamen mein Onkel und ein Nachbar.
                             </MainText>
 
                             <MainText>
-                            Three things that helped me: 
+                            Drei Dinge haben mir geholfen: 
                             </MainText>
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} The love of my wife and children. 
+                            {`\u2022`} Die Liebe meiner Frau und meiner Kinder. 
                             </MainText>
 
                             <MainText style={styles.bullets}>  
-                            {`\u2022`} My best friend since childhood challenged me to reach for greater independence. 
-                            </MainText>
+                            {`\u2022`} Mein bester Freund forderte mich heraus, nach einer größerern Unabhängigkeit zu streben. 
+                            </MainText> 
 
                             <MainText style={[styles.bullets, {marginBottom: 0}]}>  
-                            {`\u2022`} From a group of athletes with disabilities I learned an important lesson: ‘Don’t let anyone take away your role in the family, and the responsibilities you can handle.
+                            {`\u2022`} Bei einer Gruppe von Athleten mit Behinderung habe ich eine wichtige Lektion gelernt: "Lassen Sie niemanden Ihre Rolle in der Familie und die Verantwortlichkeiten die Sie selbst bewältigen können, wegnehmen.
                             </MainText>
 
-                            <PictureLegend >&mdash; R.W., Zimbabwe, Africa</PictureLegend>
+                            <PictureLegend >&mdash; R.W., Zimbabwe, Afrika</PictureLegend>
 
-                            <Image source={skinImage2} style={styles.imageGetting}/>
 
-                            <MainText style={{marginBottom: 0}}>
-                            There’s no telling who or what it will be that gives you the will and determination to go forward— 
-                            your openness that counts. 
-                            It could be your wife or husband, children, God, friends of many years, or people you meet with similar experiences to yours.  
-                            </MainText>
-                            <PictureLegend >&mdash; Bill</PictureLegend>
 
-                            <HeadingText>Getting Up {`\n`} When Feeling Down</HeadingText>
+
+                            <HeadingText>Aufstehen, wenn man sich nicht gut fühlt</HeadingText>
                             <MainText>
-                              Advice from people who’ve been there:
+                            Tipps von Leuten, die selbst in dieser Situation waren:
                             </MainText>
 
                             <MainText>
-                            {`\u2022`} Stress comes from what we tell ourselves. Substitute positive ‘self-talk’ for negative ones.
+                            {`\u2022`} Stress kommt von Dingen, die wir uns selbst einreden. Ersetzen Sie negative für positive "Selbstgespräche".
                             </MainText>
 
                             <MainText>
-                            {`\u2022`} Be around people who make you feel good about yourself.  Meet at a
-                                stroke club and aphasia group. Look for a family touched by stroke, can make a difference.
+                            {`\u2022`} Umgeben sie sich mit Menschen, die Sie dazu bringen, sich gut zu fühlen. Treffen Sie sich mit anderen Menschen in einem Schlaganfall Club und Aphasie Gruppe. Sich auf die Suche nach einer Familie, die selbst von Schlaganfall betroffen ist, kann einen grossen Unterschied machen.
                             </MainText>
 
                             <MainText>
-                            {`\u2022`} Sadness, impatience, loss, love, come with one another. 
-                                Feelings are all valid, and a reaction of what you've been through. 
+                            {`\u2022`} Traurigkeit, Ungeduld, Verlust, Liebe, kommt alles Gleichzeitig auf Sie zu. All diese Gefühle haben eine Gültigkeit und sind Reaktionen auf das, was Sie durchgemacht haben. 
                             </MainText>           
                       </View>           
 
 {/*************** Brain Body Screen  ********************************/}
 
                       <View>
-                              <HeadingText>Brain Body Connection</HeadingText>
+
+                              <HeadingText>Was ist Aphasie?</HeadingText>
+                              
+                              <MainText>
+                              Aphasie ist ein Zustand, der es schwierig macht zu sagen, was man denkt, oder zu verstehen, was gesagt wird. Mehr als die Hälfte der Männer und Frauen nach einem Schlaganfall erleben diesen Zustand. 
+                              </MainText>
+                  
+                              <MainText style={[styles.bullets, {textDecorationLine: 'underline'}]}>
+                              {`\u2022`} Aphasie beeinflusst die Intelligenz nicht. 
+                              </MainText>
+                              <MainText style={styles.bullets}>
+                              {`\u2022`} Das Weiterlernen ist im Gange: sprechen, lesen, schreiben, problemlösen. Dran bleiben, bis alles wieder zurückkommt, das man verloren hat.  
+                              </MainText>
+                  
+                              <MainText style={styles.bullets}>
+                              {`\u2022`} Suchen Sie eine Aphasie-Gruppe oder eine Familie die ähnliche Erfahrungen gemacht hat. Das kann das Selbstvertrauen erhöhen und  Freundschaften fördern.  
+                              </MainText>
+
+
+                              <HeadingText>Gehirn / Körper Verbindung</HeadingText>
                               
                               <Image source={brainImage} style={[styles.imageDefault, {height: hp('50%')}]}/>
                               
                               <MainText>
-                              My doctor told me about research that proves after a stroke, when an area of the brain is injured, doing tasks, repeating them several times, helps healing. 
-                                    For six months, I used both my weaker and stronger hand, washing my kitchen window, sorting laundry, polishing the table.{`\n`}
-                                
-                              My goal was for my right hand to open and fingers to move. I kept at it, but saw no difference, {`\n`}
-                              One morning I reached for a cup for coffee, suddenly fingers in my right hand slowly opened. I began to cry, and kept moving my fingers. 
+                              Mein Arzt erzählte mir von Forschungen, die sich nach einem Schlaganfall erweisen, wenn ein bestimmter Bereich des Gehirns verletzt wird.
+                              Aufgaben selbst erledigen, mehrmals wiederholen hilft. Sechs Monate lang benutzte ich meine schwächere und stärkere Hand gleichmässig, putzte meine Küchenfenster, sortierte Wäsche und polierte den Tisch. 
+                              </MainText>
+                              <MainText>
+                              Mein Ziel war, meine rechte Hand zu öffnen und meine Finger zu bewegen. Ich blieb dran, sah aber keinen Unterschied. Eines Morgens griff ich nach einer Tasse Kaffee, plötzlich öffneten sich langsam die Finger meiner rechten Hand. Ich begann zu weinen und bewegte meine Finger weiter.
                               </MainText>
                   
-                              <PictureLegend >&mdash; Madeline, Stuttgart, Germany</PictureLegend>
+                              <PictureLegend >&mdash; Madeline, Berlin, Deutschland</PictureLegend>
                   
                               <MainText>
-                                  Add your tasks, use both hands, repeat them several times. 
+                              Fügen Sie weitere Aufgaben hinzu, verwenden Sie beide Hände, wiederholen Sie es mehrmals. 
                               </MainText>
                   
                               <MainText style={styles.bullets}>
-                              {`\u2022`} Fold, open, re-fold items: paper napkins, clothes.
+                              {`\u2022`} Gegenstände falten, öffnen, wieder falten: Papierservietten, Kleidung.
                               </MainText>
                   
                               <MainText style={styles.bullets}>
-                              {`\u2022`} Cut/peel vegetables, fruit. Polish silverware: Wash dishes. Place cans on a shelf.
+                              {`\u2022`} Schneiden / schälen Sie Gemüse, Obst.
                               </MainText>
                   
                               <MainText style={styles.bullets}>
-                              {`\u2022`} Polish silverware: Wash dishes.
+                              {`\u2022`} Polieren Sie das Besteck: waschen Sie Geschirr.
                               </MainText>
                   
                               <MainText style={styles.bullets}>
-                              {`\u2022`} Button/Unbutton shirt.
+                              {`\u2022`} Knopf / Hemd aufknöpfen und zuknöpfen.
                               </MainText>
                   
-                              <TouchableOpacity onPress={this.playVideo}>    
-                                  <View style={{padding: 20}}>
-                                      <MainText><SubHeadingText style={{marginBottom: 0, fontSize: wp('3.5%')}}>Touch video to open full screen player &rarr;</SubHeadingText></MainText>
-                                      <Video
-                                          source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/08/19_Rob_Lawyer_and_blue_grass_musician.mp4"}}
-                                          ref={(ref) => {
-                                              this.player = ref
-                                          }}  
-                                          style={{height: 300}}
-                                          rate={1}
-                                          paused={this.state.videoRobPaused}
-                                          onLayout={this.handleVideoLayoutRob}
-                                          //onLoad={this.handleOnLoadRob}
-                                          //onFullscreenPlayerDidPresent={this.handleFullScreen}
-                                          //volume={1}
-                                          //muted={false}
-                                          //playInBackground={false}
-                                          //playWhenInactive={false}
-                                          resizeMode='contain'
-                                          repeat
-                                          />  
-                                  </View>
-                              </TouchableOpacity>
-                  
-                              <HeadingText>What is Aphasia?</HeadingText>
-                  
-                              <MainText>
-                                  Aphasia is a condition that makes it difficult to say what you are thinking, or understand what is said. 
-                                  More than half of men and women after a stroke have the condition. 
-                              </MainText>
-                  
-                              <MainText style={styles.bullets}>
-                              {`\u2022`} Intelligence is not affected. 
-                              </MainText>
-                              <MainText style={styles.bullets}>
-                              {`\u2022`} Relearning is ongoing: Talking, reading, writing, problem solving. 
-                                          You keep at it, until you get back what you've lost.  
-                              </MainText>
-                  
-                              <MainText style={styles.bullets}>
-                              {`\u2022`} Find an Aphasia Group or a family with similar experiences. 
-                                  It can increases confidence, friendships.  
-                              </MainText>
+                           
                         
                       </View>          
 
@@ -729,109 +683,48 @@ class HomeScreen extends Component {
 
                     <View>
                             <LinkToolkitWrapper 
-                              text={'Share Emergency Inf. Toolkit with family. Click toolkit.'}
+                              text={'Teilen Sie das Interaktive Notfall-Informationsstation Toolkit mit Ihrer Familie (klicken Sie unten)'}
                               source={emergencyIcon}
                               onPress={this.handleEmergency}
                             />
 
-                            <HeadingText style={{fontWeight: 'bold'}}>Don’t wait. Get help.</HeadingText>
+                            {/* <HeadingText style={{fontWeight: 'bold'}}>Don’t wait. Get help.</HeadingText> */}
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Call 911 or your emergency number.   
+                            {`\u2022`} Wenn Sie glauben, dass es ein Notfall ist - ist es wahrscheinlich einer! Holen Sie sich sofort Hilfe.    
                             </MainText>      
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Report possible stroke, or another emergency. 
+                            {`\u2022`} Schreiben Sie alle Informationen in das Interaktive Notfall-Informationsstation Toolkit.  
                             </MainText>    
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Answer questions in clear, short answers.
-                                If you need a translator, ask immediately. 
+                            {`\u2022`} Halten Sie es griffbereit. 
                             </MainText>    
 
-                            <MainText style={styles.bullets}>
+                            {/* <MainText style={styles.bullets}>
                             {`\u2022`} Do not hang up first: Wait for instructions. 
                             </MainText> 
                             
                             <View style={{height: 30}}></View>
 
-                            <View style={[styles.border, {height: 90}]}>    
-                                  <TouchableOpacity onPress={() => Linking.openURL('https://abledata.acl.gov/new_products')}>
-                                  <MainText style={styles.boxLink}>
-                                      www.abledata.com
-                                  </MainText>
-                                  </TouchableOpacity>
-                                  <Text style={styles.boxText}>Best adaptable product information - English Spanish</Text>
-                                  <Text style={styles.boxText}>800-227-0216, 703-992-8313. TTY</Text>
-                                  <Text style={styles.boxText}>abledata@neweditions.net Products to ease living.</Text>
-
-                            </View>   
-
-
-                            <View style={[styles.border, {height: 50}]}>    
-                                  <TouchableOpacity onPress={() => Linking.openURL('https://www.acl.gov/')}>
-                                  <MainText style={styles.boxLink}>
-                                      www.acl.gov
-                                  </MainText>
-                                  </TouchableOpacity>
-                                  <Text style={styles.boxText}>Community living information.</Text>
-                            </View>
-
-
-                            <View style={[styles.border, {height: 100}]}>
-                          
-                                  <TouchableOpacity onPress={() => Linking.openURL('https://www.naric.com')}>
-                                    <MainText style={styles.boxLink}>
-                                      https://www.naric.com
-                                    </MainText>
-                                  </TouchableOpacity>
-                                  
-                                  <Text style={styles.boxText}>National Rehabilitation Information Center/ NARIC </Text>
-                                  <Text style={[styles.boxText,{fontSize: wp('3.5%')}]}>Leading disability-related information.  English/Spanish.</Text>
-                                  <Text style={styles.boxText}>1-800-346-2742. English / Spanish</Text>
-                                  
-                            </View>
-
-                            <View style={[styles.border, {height: 50}]}>
-                                <TouchableOpacity onPress={() => Linking.openURL('https://www.aphasia.org/site ')}>
-                                <MainText style={styles.boxLink}>
-                                    https://www.aphasia.org/site 
-                                </MainText>
-                                </TouchableOpacity>
-
-                                <Text style={styles.boxText}>Find support/aphasia programs. English/Spanish</Text>
-                              
-                            </View> 
-
-                            <ImageContainer source={strokeLine} style={{width: wp('60%')}}/>
-
-                            <View style={[styles.border, {height: 90}]}>
-                                    <TouchableOpacity onPress={() => Linking.openURL('http://www.strokeassociation.org/STROKEORG/strokegroup')}>
-                                    <MainText style={styles.boxLink}>
-                                        http://strokeassociation.org 
-                                    </MainText>
-                                    </TouchableOpacity>
-                                    <Text style={styles.boxText}>American Stroke Association</Text>
-                                    <Text style={styles.boxText}>1-888-4-STROKE 1-888-478-7653</Text>
-                                    <Text style={styles.boxText}>Learn CPR – Spanish, Chinese, Vietnamese</Text>
-
-                            </View> 
+                            <HeadingText >In Emergency</HeadingText>
                             
-                            <Link />  
+                            <Link />   */}
 
-                            <HeadingText>Getting Organized</HeadingText>
+                            <HeadingText>Organisieren Sie sich</HeadingText>
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Consider using a notebook, cell phone or computer –whatever works for you with subjects 
-                            – medications, physical therapy, speech, doctors, therapists’ notes. 
+                            {`\u2022`} Erwägen Sie, ein Notebook, ein Handy oder einen Computer zu nutzen – Machen Sie sich Notizen zu den Themen - Medikamente, Physiotherapie, Sprache, Ärzte, Therapeuten. 
                             </MainText>
                             <MainText style={styles.bullets}>    
-                            {`\u2022`} Keep handy names, phones, addresses of doctors, therapists, helpers, family, neighbors. 
+                            {`\u2022`} Schreiben Sie alle Namen, Telefonnummern, Adressen von Ärzten, Therapeuten, Helfern, Familie und Nachbarn auf. 
                             </MainText>
                             <MainText style={styles.bullets}>   
-                            {`\u2022`} Save bills: Paid and Unpaid, receipts health-care-related purchases, papers for insurance. tax purposes.       
+                            {`\u2022`} Rechnungen speichern: Bezahlt und unbezahlt. Bewahren Sie Belege für Käufe in Bezug auf Ihre Gesundheitsversorgung, Dokumente der Versicherung und Steuern auf.       
                             </MainText>
-                    
+
+
                   </View>           
 
 {/*************** Bio Screen  ********************************/}
@@ -840,15 +733,13 @@ class HomeScreen extends Component {
                           <ImageContainer source={bioImage} orientation={'portrait'} style={[styles.image, {height: '100%'}]} />    
 
                           <MainText>
-                              A long-time activist in the disability rights movement, and author of more than a dozen books, Florence Weiner has interviewed hundreds of men and women and their families touched by stroke. 
-                              She shares their advice here, and at StrokeKnowHow.org: A worldwide stroke community based on the belief that we learn best from one another.    
+                          Als langjährige Aktivistin in der Behindertenrechtsbewegung und Autorin von mehr als einem Dutzend Büchern hat Florence Weiner hunderte von Männern und Frauen und deren Familien, die von Schlaganfall betroffen sind, interviewt. Sie teilt hier ihren Rat und auch auf der Webseite StrokeKnowHow.org., eine weltweite Schlaganfall-Gemeinschaft, basierend auf der Überzeugung, dass Menschen am besten von anderen Menschen lernen.   
                           </MainText>
 
                           <MainText>
-                              Every stroke is unique. So is the path we choose to find our way back. 
-                              If you find answers, motivation, inspiration and hope, this work will have fulfilled its purpose.    
+                          Jeder Schlaganfall ist einzigartig. So wählen wir den Weg zurück ins Leben. Wenn Sie  hier Antworten, Motivation und Hoffnung finden, hat diese Arbeit ihren Zweck erfüllt.    
                           </MainText>
-                          <MainText>For Richard, the brightest light.</MainText>
+                          <MainText>Für Richard das hellste Licht.</MainText>
                   </View>       
 
 
@@ -897,18 +788,6 @@ const styles = StyleSheet.create({
     height: 300,
     marginTop: hp('2%'),
     alignSelf: 'center'
-  },
-  border: {
-    margin: 5,
-  },
-  boxLink: {
-    fontWeight: 'bold',
-    marginVertical: 0,
-    alignSelf: 'center'
-  },
-  boxText: {
-    alignSelf: 'center', 
-    fontSize: wp('4%')
   },
 });
 

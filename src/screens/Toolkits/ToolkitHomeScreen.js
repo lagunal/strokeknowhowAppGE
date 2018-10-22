@@ -54,7 +54,7 @@ class ToolkitHomeScreen extends Component {
                         <Icon style={styles.icon} name="ios-people" size={30} md="md-people"></Icon>    
                         <MainText>
                             <SubHeadingText style={styles.title}>
-                                Help Needed Toolkit  
+                            Notwendige Hilfe Toolkit  
                             </SubHeadingText>
                         </MainText>  
                         
@@ -66,7 +66,7 @@ class ToolkitHomeScreen extends Component {
                         <Icon style={styles.icon} name="md-calendar" size={30} md="md-calendar"></Icon>    
                         <MainText>
                             <SubHeadingText style={styles.title}>
-                                Weekly Schedule Toolkit  
+                            Wöchentlich Programmieren 
                             </SubHeadingText>
                         </MainText>  
                         
@@ -78,7 +78,7 @@ class ToolkitHomeScreen extends Component {
                         <Icon style={styles.icon} name="ios-medkit" size={30} md="md-medkit"></Icon>    
                         <MainText>
                             <SubHeadingText style={styles.title}>
-                                Medications Toolkit  
+                            Medikamenten Toolkit  
                             </SubHeadingText>
                         </MainText>  
                         
@@ -90,7 +90,7 @@ class ToolkitHomeScreen extends Component {
                         <Icon style={styles.icon} name="ios-bicycle" size={30} md="md-bicycle"></Icon>    
                         <MainText>
                             <SubHeadingText style={styles.title}>
-                                Physical Therapy Toolkit  
+                            Physiotherpie Toolkit  
                             </SubHeadingText>
                         </MainText>  
                         
@@ -102,7 +102,7 @@ class ToolkitHomeScreen extends Component {
                         <Icon style={styles.icon} name="ios-warning" size={30} md="md-warning"></Icon>    
                         <MainText>
                             <SubHeadingText style={styles.title}>
-                                Emergency Information Toolkit
+                            Notfall-Informationsstation
                             </SubHeadingText>
                         </MainText>  
                         

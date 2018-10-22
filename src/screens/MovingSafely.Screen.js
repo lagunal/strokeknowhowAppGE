@@ -133,62 +133,62 @@ class MovingSafelyScreen extends Component {
             <ScrollView
               scrollEventThrottle={16} 
               onScroll={this.handleScroll}
+              minimumZoomScale={1}
+              maximumZoomScale={2}
             >
-                    <TouchableOpacity onPress={this.playVideo}>
-                        <View style={{padding: 20}}>
-                            <MainText><SubHeadingText style={{marginBottom: 0, fontSize: wp('3.5%')}}>Touch video to open full screen player &rarr;</SubHeadingText></MainText>
-                            <Video
-                              source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/08/16_Transfer_from_bed_to_wheelchair.mp4"}}
-                              ref={(ref) => {
-                                this.player = ref
-                              }}       
-                              style={{height: 300}}                             
-                              rate={1}
-                              paused={this.state.videoAnimationPaused}
-                              onLayout={this.handleVideoLayout}
-                              //onLoad={this.handleOnLoadAnimation}
-                              //onFullscreenPlayerDidPresent={this.handleFullScreenAnimation}
-                              volume={1}
-                              muted={false}
-                              playInBackground={false}
-                              playWhenInactive={false}
-                              resizeMode='contain'
-                              repeat
-                              />
-                        </View>
-                    </TouchableOpacity>  
+                           <TouchableOpacity onPress={this.playVideoAnimation}>
+                                  <View style={{padding: 20}}>
+                                      <MainText><SubHeadingText style={{marginBottom: 0, fontSize: wp('3.5%')}}>Berühren Sie Video, um den Vollbild-Player zu öffnen &rarr;</SubHeadingText></MainText>
+                                      <Video
+                                        source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/08/16_Transfer_from_bed_to_wheelchair.mp4"}}
+                                        ref={(ref) => {
+                                          this.player2 = ref
+                                        }}       
+                                        style={{height: 300}}                             
+                                        rate={1}
+                                        paused={this.state.videoAnimationPaused}
+                                        onLayout={this.handleVideoLayout}
+                                       // volume={1}
+                                       // muted={false}
+                                       // onLoad={this.handleOnLoadAnimation}
+                                       // onFullscreenPlayerDidPresent={this.handleFullScreenAnimation}
+                                        //playInBackground={false}
+                                        //playWhenInactive={false}
+                                        resizeMode='contain'
+                                        repeat
+                                        />
+                                  </View>
+                              </TouchableOpacity> 
 
-                    <HeadingText>Helpers Protecting Themselves</HeadingText>
-                    
-                    <MainText style={styles.bullets}>  
-                    {`\u2022`} When moving someone, keep your hips and knees slightly bent. Stand close to person – too far away puts a strain on your back. 
-                    </MainText>
-                    <MainText style={styles.bullets}>
-                    {`\u2022`} Stand with feet slightly apart, one foot ahead of the other to keep your balance, shift your weight if necessary.
-                    </MainText>
-                    <HeadingText>Share the Care</HeadingText>
+                              <HeadingText>Selbstschutz für Helfer</HeadingText>
+                              
+                              <MainText style={styles.bullets}>  
+                              {`\u2022`} Wenn Sie jemanden bewegen, halten Sie Ihre Hüften und Knie leicht gebeugt. Stehen Sie nah an der Person - zu weit weg belastet Ihren Rücken.  
+                              </MainText>
+                              <MainText style={styles.bullets}>
+                              {`\u2022`} Stehen Sie mit Ihren Füßen leicht auseinander, einen Fuß vor dem anderen, um Ihr Gleichgewicht zu halten, verlagern Sie Ihr Gewicht, wenn es nötig ist.
+                              </MainText>
+                              <HeadingText>Teilen Sie die Pflege</HeadingText>
 
-                    <Image source={familyImage} style={styles.imageDefault}/>
+                              <Image source={familyImage} style={styles.imageDefault}/>
 
-                    <MainText style={{marginBottom: 0}}>  
-                        When my wife, Tina, had a stroke,
-                          it hit our whole family, and we each had 
-                          a job to do– even the kids.
-                    </MainText>
-                    <PictureLegend >&mdash; Javier, Lima, Peru</PictureLegend>
+                              <MainText style={{marginBottom: 0}}>  
+                              Als meine Frau Tina, einen Schlaganfall hatte, betraf dies unsere ganze Familie. Wir hatten alle eine Aufgabe zu erledigen − sogar die Kinder.
+                              </MainText>
+                              <PictureLegend >&mdash; Javier, Lima, Peru</PictureLegend>
 
-                    
-                      <HeadingText>Questions Families {`\n`} Ask Themselves</HeadingText>
-                    
-                    <MainText style={styles.bullets}>
-                        {`\u2022`} Who will handle personal care; physical therapy? When?
-                    </MainText>
-                    <MainText style={styles.bullets}>
-                        {`\u2022`} Shop, share housekeeping? When? 
-                    </MainText>
-                    <MainText style={styles.bullets}>     
-                        {`\u2022`} Drive to doctor and therapy appointments. 
-                    </MainText>
+                              
+                                <HeadingText>Fragen, die sich die Familien stellt</HeadingText>
+                              
+                              <MainText style={styles.bullets}>
+                                  {`\u2022`} Wer übernimmt die persönliche Pflege? Physiotherapie? Wann?
+                              </MainText>
+                              <MainText style={styles.bullets}>
+                              {`\u2022`} Wer wird die Einkäufe tätigen und den Reinigungsservice teilen? Wann?
+                              </MainText>
+                              <MainText style={styles.bullets}>     
+                                  {`\u2022`} Wer fährt mit zu Terminen beim Arzt und Therapien? 
+                              </MainText>        
           
             </ScrollView>                
 

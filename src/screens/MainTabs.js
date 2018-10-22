@@ -14,26 +14,26 @@ const startTabs = () => {
             tabs: [
                 {
                     screen: "StrokeApp.HomeScreen",
-                    label: "Home",
-                    title: "Home",
+                    label: "Zuhause",
+                    title: "Zuhause",
                     icon: sources[0],
                     
                 },
                 {
                     screen: "StrokeApp.ContentsScreen",
-                    label: "Contents",
-                    title: "Contents",
+                    label: "Inhalt",
+                    title: "Inhalt",
                     icon: sources[2],
                 },
                 {
                     screen: "StrokeApp.ToolkitHomeScreen",
                     label: "Toolkits",
-                    title: "Interactive Toolkits",
+                    title: "Interaktive Toolkits",
                     icon: sources[1],
                 },
                 {
                     screen: "StrokeApp.ProfileScreen",
-                    label: "Account",
+                    label: "Konto",
                     icon: sources[3],
                     
                 },

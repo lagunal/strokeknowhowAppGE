@@ -267,7 +267,7 @@ class LoginScreen extends Component {
         <TouchableOpacity disabled={this.state.enterButtonDisabled || this.state.username == "" || this.state.password == ""}
           style={styles.EMailLogin}
           onPress={ this.onEMailLogin } >
-          <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>LOG IN</Text>
+          <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>EINLOGGEN</Text>
         </TouchableOpacity>
 
       </View>;
@@ -282,7 +282,7 @@ class LoginScreen extends Component {
         <TouchableOpacity disabled={this.state.enterButtonDisabled}
           style={styles.EMailRegister}
           onPress={this.onRegisterScreenButton} >
-          <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>JOIN IN</Text>
+          <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>DAZU KOMMEN</Text>
         </TouchableOpacity>
       </View>;
   }
@@ -296,7 +296,7 @@ class LoginScreen extends Component {
         <TouchableOpacity disabled={this.state.enterButtonDisabled || this.state.email.trim() == "" || this.state.password.trim() == ""}
           style={styles.EMailRegister}
           onPress={this.onRegisterButton} >
-          <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>JOIN IN</Text>
+          <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>DAZU KOMMEN</Text>
         </TouchableOpacity>
       </View>;
   }
@@ -374,15 +374,15 @@ class LoginScreen extends Component {
             
           
             <View style={{marginTop: hp('10%')}}>
-              <HeadingText style={{color: 'white', fontSize: hp('4%')}}>Welcome to {`\n`} StrokeKnowHow</HeadingText>
-              <MainText style={{textAlign: 'center', fontSize: hp('3%'), color: 'white'}}>We are a worldwide stroke <Text style={{fontSize: hp('5%'), fontWeight: 'bold'}}>community</Text> {`\n`} learning from one another</MainText>
+              <HeadingText style={{color: 'white', fontSize: hp('4%')}}>Willkommen bei {`\n`} StrokeKnowHow</HeadingText>
+              <MainText style={{textAlign: 'center', fontSize: hp('3%'), color: 'white'}}>Wir sind eine weltweite Schlaganfall-  <Text style={{fontSize: hp('5%'), fontWeight: 'bold'}}>Gemienschaft</Text> {`\n`} die von- und miteinander lernt</MainText>
             </View>
 
            
            <View style={{marginTop: hp('3%')}}>
                 <View style={{height: hp('6%')}}>
                     <TextFieldInput
-                      label='Username'
+                      label='Nutzername'
                       style={{height: hp('7%')}}
                       value={this.state.username}
                       onChangeText={username => this.setState({ username })}
@@ -394,7 +394,7 @@ class LoginScreen extends Component {
                 {!this.state.inLogin &&
                   <View style={{height: hp('6%')}}>  
                     <TextFieldInput
-                      label='Family name (ex. Lopez Family)'
+                      label='Nachname (z. B. Familie Lopez)'
                       style={{height: hp('7%')}}
                       value={this.state.name}
                       onChangeText={name => this.setState({ name })}
@@ -408,7 +408,7 @@ class LoginScreen extends Component {
                 {!this.state.inLogin &&
                   <View style={{height: hp('6%')}}>  
                     <TextFieldInput
-                      label='Email Address'
+                      label='E-Mail-Addresse'
                       style={{height: hp('7%')}}
                       value={this.state.email}
                       onChangeText={(email) => this.validateEMail(email)}
@@ -419,7 +419,7 @@ class LoginScreen extends Component {
 
                 <View style={{height: hp('6%')}}>  
                     <TextFieldInput
-                      label={this.state.inLogin ? 'Shared Family Password' : 'Shared Family Password (6+ chr)'}
+                      label={this.state.inLogin ? 'Familienpasswort teilen' : 'Familienpasswort teilen (6+)'}
                       style={{height: hp('7%')}}
                       autoCorrect={false}
                       secureTextEntry
@@ -435,7 +435,7 @@ class LoginScreen extends Component {
 
                 {!this.state.inLogin &&
                   <View style={{marginTop: 0}}>
-                    <Text style={[styles.terms, {color: 'white'}]}>Tip: Everyone in your family will use this password, so tell them what it is!</Text>
+                    <Text style={[styles.terms, {color: 'white'}]}>Tipp: Jeder in Ihrer Familie wird dieses Passwort verwenden, also sagen Sie ihm, was es ist!</Text>
                   </View>}  
                   
             </View>
@@ -453,15 +453,15 @@ class LoginScreen extends Component {
             {this.state.inLogin &&
             <View style={{marginTop: 0, flex:1, flexDirection: 'row', justifyContent: 'center'}}>
               {/* {this.renderButtonOrRegister()} */}
-                <MainText style={{color: 'white'}}>Don't have an account?</MainText>
+                <MainText style={{color: 'white'}}>Hast du kein Konto?</MainText>
                 <TouchableOpacity 
                       onPress={this.onRegisterScreenButton}>
-                      <MainText style={{color: '#b30000', fontWeight: 'bold'}}>Sign up</MainText>
+                      <MainText style={{color: '#b30000', fontWeight: 'bold'}}>Anmelden</MainText>
                 </TouchableOpacity>
             </View>}
 
             {this.state.inLogin && Platform.OS === 'android' ?
-              <View style={{height: 200}}>
+              <View style={{height: hp('10%')}}>
               </View>
               :
               <View style={{height: 0}}>
@@ -471,10 +471,10 @@ class LoginScreen extends Component {
             {!this.state.inLogin &&
               <View style={{marginTop: 0, flex:1, flexDirection: 'row', justifyContent: 'center'}}>
                 {/* {this.renderButtonOrRegister()} */}
-                  <MainText style={{color: 'white'}}>Already have an account?</MainText>
+                  <MainText style={{color: 'white'}}>Hast du schon ein Konto?</MainText>
                   <TouchableOpacity 
                         onPress={this.goToLogin}>
-                        <MainText style={{color: '#b30000', fontWeight: 'bold'}}>Log in</MainText>
+                        <MainText style={{color: '#b30000', fontWeight: 'bold'}}>Einloggen</MainText>
                   </TouchableOpacity>
               </View>}
 

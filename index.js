@@ -12,5 +12,5 @@ const RNRedux = () => (
     </Provider>
 );
     
-AppRegistry.registerComponent('strokeApp', () => App);
+AppRegistry.registerComponent('strokeAppGe', () => App);
 

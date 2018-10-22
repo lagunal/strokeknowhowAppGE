@@ -41,7 +41,7 @@ class ProfileScreen extends Component {
         <TouchableOpacity
           style={styles.EMailLogin}
           onPress={ this.logOutHandler } >
-          <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>LOGOUT</Text>
+          <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>AUSLOGGEN</Text>
         </TouchableOpacity>
 
       </View>

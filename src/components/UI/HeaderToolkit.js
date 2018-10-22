@@ -12,8 +12,13 @@ const HeaderToolkit = (props) => [
             <MainText><SubHeadingText style={[styles.textTitle, props.style]}>{props.title}</SubHeadingText></MainText>
         </View>,
         <View style={styles.instructionsWrap}>
-            <Text style={styles.textInstructions}> {props.instructions}</Text>
-            <Text style={styles.textInstructions}>Rotate cel phone sideways to have a better view.</Text>
+            {props.directions1 && <Text style={styles.textInstructions}>{`\u2022`} {props.directions1}</Text>}
+            {props.directions2 && <Text style={styles.textInstructions}>{`\u2022`} {props.directions2}</Text>}
+            {props.directions3 && <Text style={styles.textInstructions}>{`\u2022`} {props.directions3}</Text>}
+            {props.directions4 && <Text style={styles.textInstructions}>{`\u2022`} {props.directions4}</Text>}
+            {props.directions5 && <Text style={styles.textInstructions}>{`\u2022`} {props.directions5}</Text>}
+            <Text style={styles.textInstructions}>{props.instructions}</Text>
+            <Text style={styles.textInstructions}>Drehen Sie das Telefon für eine bessere Sicht seitwärts.</Text>
         </View>
 ];
 

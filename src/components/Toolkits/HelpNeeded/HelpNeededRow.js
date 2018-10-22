@@ -1,97 +1,39 @@
 import React from 'react';
-import {
-    StyleSheet,
-    View,
-    Text,
-    TouchableOpacity
-  } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import Icon from "react-native-vector-icons/Ionicons";
 
-IconRender = () => {
-    return(
-        <Icon style={styles.icon} name="ios-checkbox-outline" size={25} md="ios-checkbox-outline"></Icon>
-    );
-}
-
+import MainText from "../../UI/MainText";
 
 const HelpNeededRow = (props) => {
-    
+
     handlePress = () => {
         props.onItemPress(props, props.keyId);
     }
-   
+
     return(
-        <TouchableOpacity onPress={this.handlePress}>
-            <View style={[styles.containerGrid,{backgroundColor: props.backgroundColor}]}> 
+        <TouchableOpacity style={styles.cell} onPress={this.handlePress}>
+                
+            <Text style={styles.titleHour}>{props.helper}</Text>
 
-                <View style={[styles.cell, {flex: 2 , backgroundColor: props.backgroundColorMedication}]}>
-                    <Text style={styles.titleMed}>{props.medication}</Text>
-                </View>
-
-                <View style={styles.cell}>
-                    {props.monday  &&
-                    <IconRender />}
-                </View>
-                <View style={styles.cell}>
-                    {props.tuesday  &&
-                    <IconRender />}
-                </View>
-                <View style={styles.cell}>
-                    {props.wednesday &&
-                        <IconRender />}
-                </View>
-                <View style={styles.cell}>
-                    {props.thursday &&
-                        <IconRender />}
-                </View>
-                <View style={styles.cell}>
-                    {props.friday  &&
-                        <IconRender />}
-                </View>
-                <View style={styles.cell}>
-                    {props.saturday  &&
-                        <IconRender />}
-                </View>
-                <View style={styles.cell}>
-                    {props.sunday  &&
-                        <IconRender />}
-                </View>
-
-            </View>
         </TouchableOpacity>
-    );
+    )
+
 }
 
 const styles = StyleSheet.create({
 
-    containerGrid: {
-      flex: 1,
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-    },
-
     titleHour: {
       fontSize: hp('2%'),
-      alignSelf: 'center',
-      marginVertical: hp('1.5%'),
+
     },
-    titleMed: {
-        fontSize: hp('2%'),
-      },
-  
     cell: {
-      //flex:  1,
-      //borderColor: '#ccc',
+      flex: 1,
       borderColor: 'black',
       borderWidth: 1,
-      height: hp('6%'),
-      width: wp('9.5%'),
+      height: hp('20%'),
     },
-    icon: {
-        marginHorizontal: wp('2%'),
-        marginVertical: hp('1%'),
-    },
+
 });
 
 export default HelpNeededRow;
+

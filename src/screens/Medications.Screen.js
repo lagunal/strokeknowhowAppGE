@@ -12,8 +12,9 @@ import MainText from "../components/UI/MainText";
 import ImageContainer from "../components/UI/ImageContainer";
 import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
 
-const medicationIcon = require('../assets/FotoMedication.jpg');
+
 const medicationsImage = require('../assets/medications.png');
+const medicationIcon = require('../assets/Medication_German_Image.jpg');
 
 class MedicationsScreen extends Component {
     constructor(props) {
@@ -55,19 +56,19 @@ class MedicationsScreen extends Component {
         return (
           <View style={styles.container}>
             <ScrollView> 
-                <HeadingText>Organizing Medications</HeadingText>
+            <HeadingText>Das organisieren der Medikamente</HeadingText>
 
-                <Image source={medicationsImage} style={styles.imageDefault} />
-                
-                <MainText>
-                    Ruth, M. 78, uses a pill organizer and the Interactive Medication Toolkit. Ruth’s daughter, can also see the Toolkit.
-                </MainText>
+            <Image source={medicationsImage} style={styles.imageDefault} />
 
-                <LinkToolkitWrapper 
-                  text={'Share Medication toolkit with family. Click Toolkit'}
-                  source={medicationIcon}
-                  onPress={this.props.pressMedication ? this.props.pressMedication : this.handleMedication}
-                />
+            <MainText>
+            Ruth, M. 78, verwendet einen Pillen-Organisator und das Interaktive Medikamenten Toolkit. Ihre Tochter kann das Toolkit einsehen und kontrollieren ob die Mutter ihre Medikamente einnimmt.
+            </MainText>
+
+            <LinkToolkitWrapper 
+              text={'Teilen Sie das Interaktive Medikamenten Toolkit für Ihre Familie (klicken Sie unten)'}
+              source={medicationIcon}
+              onPress={this.handleMedication}
+            />
               
             </ScrollView>                    
 

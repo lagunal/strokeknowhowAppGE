@@ -56,29 +56,29 @@ class SkinCareScreen extends Component {
           <View style={styles.container}>
             <ScrollView>
 
-            <HeadingText>Skin Care</HeadingText>
+                       <HeadingText>Hautpflege</HeadingText>
 
-            <Image source={skinImage} style={styles.imageDefault} />
+                      <Image source={skinImage} style={styles.imageDefault} />
 
-            <MainText style={styles.bullets}>
-            {`\u2022`} Check skin every day for redness, and injury – especially when skin is fragile, poor circulation, diabetic.
-            </MainText>
+                      <MainText style={styles.bullets}>
+                      {`\u2022`} Überprüfen Sie die Haut jeden Tag auf Rötungen und Verletzungen - besonders bei empfindlicher Haut, schlechter Durchblutung oder Diabetikern.
+                      </MainText>
 
-            <MainText style={styles.bullets}>
-            {`\u2022`} Pressure sore or bruise requires immediate attention for medication and treatment.
-            </MainText>
+                      <MainText style={styles.bullets}>
+                      {`\u2022`} Druckgeschwüre oder Prellungen erfordern sofortige Aufmerksamkeit und müssen Medikamentös und behandelt werden.
+                      </MainText>
 
-            <MainText style={styles.bullets}>
-            {`\u2022`} Reposition <Text style={{textDecorationLine: 'underline'}}>at least every two hours</Text> when in bed for extended time. 
-            </MainText>
+                      <MainText style={styles.bullets}>
+                      {`\u2022`} Nehmen Sie <Text style={{textDecorationLine: 'underline'}}>mindestens alle zwei Stunden</Text> im Bett  eine andere Position ein für eine längere Zeit. 
+                      </MainText>
 
-            <MainText style={styles.bullets}>
-            {`\u2022`} Helpers must <Text style={{textDecorationLine: 'underline'}}>lift not pull</Text> someone across sheet, to avoid friction injuries. 
-            </MainText>
+                      <MainText style={styles.bullets}>
+                      {`\u2022`} Helfer müssen <Text style={{textDecorationLine: 'underline'}}>anheben, nicht über das Tuch ziehen</Text> um Reibungsverletzungen zu vermeiden.  
+                      </MainText>
 
-            <MainText style={styles.bullets}>
-            {`\u2022`} Pressure sores, skin breakdown occur from infrequent turning, changing positions.  
-            </MainText>
+                      <MainText style={styles.bullets}>
+                      {`\u2022`} Druckgeschwüre, Hautschädigung treten durch seltenes Drehen, Ändern von Positionen auf  
+                      </MainText>
           
             </ScrollView>                
           </View>           
